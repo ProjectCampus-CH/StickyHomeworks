@@ -33,14 +33,14 @@
         <Style TargetType="Window">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding ViewModel.IsUnlocked}"
-                        Value="True">
+                             Value="True">
                     <Setter Property="ResizeMode"
                             Value="CanResize"/>
                     <Setter Property="Background"
                             Value="{DynamicResource MaterialDesignPaper}"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding ViewModel.IsUnlocked}"
-                        Value="False">
+                             Value="False">
                     <Setter Property="ResizeMode"
                             Value="NoResize"/>
                     <Setter Property="Background"
@@ -51,7 +51,7 @@
     </Window.Style>
     <Window.Resources>
         <Style x:Key="MarkdownParagraphBaseStyle"
-                TargetType="Paragraph">
+               TargetType="Paragraph">
             <Setter Property="FontWeight"
                     Value="Regular"/>
             <Setter Property="FontSize"
@@ -63,7 +63,7 @@
         </Style>
 
         <Style TargetType="Paragraph"
-                BasedOn="{StaticResource MarkdownParagraphBaseStyle}"/>
+               BasedOn="{StaticResource MarkdownParagraphBaseStyle}"/>
         <Style TargetType="FlowDocument">
             <Setter Property="PagePadding"
                     Value="0"/>
@@ -85,19 +85,19 @@
         </CollectionViewSource>
 
         <StackPanel x:Key="ExitConfirm"
-                VerticalAlignment="Stretch"
-                Margin="16"
-                MaxWidth="400">
+                    VerticalAlignment="Stretch"
+                    Margin="16"
+                    MaxWidth="400">
             <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}">
                 <Run Text="退出应用"/>
             </TextBlock>
             <TextBlock Margin="0 6 0 0"
-                    TextWrapping="Wrap">
+                       TextWrapping="Wrap">
                 <Run Text="确定要退出应用吗？"/>
             </TextBlock>
             <StackPanel Orientation="Horizontal"
-                    Margin="0 8 0 0"
-                    HorizontalAlignment="Right">
+                        Margin="0 8 0 0"
+                        HorizontalAlignment="Right">
                 <Button Content="退出"
                         HorizontalAlignment="Right"
                         Style="{DynamicResource MaterialDesignFlatButton}"
@@ -124,11 +124,11 @@
         </StackPanel>
         <Storyboard x:Key="StoryBoardSaving">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PackIconArrowFile"
-                    Storyboard.TargetProperty="(Canvas.Top)">
+                                           Storyboard.TargetProperty="(Canvas.Top)">
                 <EasingDoubleKeyFrame KeyTime="00:00:00"
-                        Value="1"/>
+                                      Value="1"/>
                 <EasingDoubleKeyFrame KeyTime="00:00:00.2000000"
-                        Value="50"/>
+                                      Value="50"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -168,15 +168,15 @@
                         </Grid.ColumnDefinitions>
                         <!-- 标题 -->
                         <TextBlock Grid.Column="0"
-                                Text="{Binding SettingsService.Settings.Title, Mode=OneWay}"
+                                   Text="{Binding SettingsService.Settings.Title, Mode=OneWay}"
                                    VerticalAlignment="Center"
                                    FontWeight="Medium"
                                    TextTrimming="CharacterEllipsis"
                                    FontSize="22"
-                                Margin="6 2 2 2"/>
+                                   Margin="6 2 2 2"/>
                         <!-- 功能区 -->
                         <StackPanel Grid.Column="1"
-                                Orientation="Horizontal">
+                                    Orientation="Horizontal">
                             <StackPanel.Resources>
                                 <Style TargetType="Button"
                                        BasedOn="{StaticResource MaterialDesignToolForegroundButton}">
@@ -197,14 +197,14 @@
                                       TextElement.Foreground="{DynamicResource MaterialDesignBody}">
                                     <Grid.Effect>
                                         <DropShadowEffect BlurRadius="8"
-                                                Direction="0"
+                                                          Direction="0"
                                                           ShadowDepth="0"
                                                           Opacity="0.5"/>
                                     </Grid.Effect>
                                     <StackPanel Margin="12"
-                                            MenuItem.Click="MenuItem_OnClick">
+                                                MenuItem.Click="MenuItem_OnClick">
                                         <ely:IconText Kind="CogOutline"
-                                                Text="更多选项"/>
+                                                      Text="更多选项"/>
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition/>
@@ -243,19 +243,19 @@
                                         </Grid>
                                         <Separator Margin="-12 4"/>
                                         <MenuItem Margin="-12 0"
-                                                Icon="{materialDesign:PackIcon Refresh}"
-                                                Header="恢复过期的作业"
-                                                Click="MenuItemRecoverExpiredHomework_OnClick"
-                                                IsEnabled="{Binding ViewModel.CanRecoverExpireHomework}"/>
+                                                  Icon="{materialDesign:PackIcon Refresh}"
+                                                  Header="恢复已删除的作业"
+                                                  Click="MenuItemRecoverExpiredHomework_OnClick"
+                                                  IsEnabled="{Binding ViewModel.CanRecoverExpireHomework}"/>
                                         <MenuItem Margin="-12 0"
-                                                Icon="{materialDesign:PackIcon CogOutline}"
-                                                Header="更多设置…"
-                                                Click="ButtonSettings_OnClick"/>
+                                                  Icon="{materialDesign:PackIcon CogOutline}"
+                                                  Header="更多设置…"
+                                                  Click="ButtonSettings_OnClick"/>
                                         <MenuItem Margin="-12 0"
-                                                Icon="{materialDesign:PackIcon Close}"
-                                                Header="退出"
-                                                Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                                                CommandParameter="{StaticResource ExitConfirm}"/>
+                                                  Icon="{materialDesign:PackIcon Close}"
+                                                  Header="退出…"
+                                                  Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                                                  CommandParameter="{StaticResource ExitConfirm}"/>
                                     </StackPanel>
                                 </Grid>
                             </materialDesign:PopupEx>
@@ -272,27 +272,24 @@
                                     Visibility="{Binding ViewModel.IsExpanded, Converter={StaticResource BooleanToVisibilityConverter}}"
                                     Click="ButtonExport_OnClick"/>
                             <Button Content="{materialDesign:PackIcon Add, Size=18}"
-                                    ToolTip="布置作业"
+                                    ToolTip="布置任务"
                                     Visibility="{Binding ViewModel.IsExpanded, Converter={StaticResource BooleanToVisibilityConverter}}"
                                     Click="ButtonCreateHomework_OnClick"/>
-                            <Button Content="{materialDesign:PackIcon Settings, Size=18}"
-                                    ToolTip="设置…"
-                                    Click="ButtonSettings_OnClick"/>
                             <Button Margin="4 0"
                                     Click="ButtonExpandingSwitcher_OnClick">
                                 <Button.Style>
                                     <Style TargetType="Button"
-                                            BasedOn="{StaticResource MaterialDesignToolForegroundButton}">
+                                           BasedOn="{StaticResource MaterialDesignToolForegroundButton}">
                                         <Style.Triggers>
                                             <DataTrigger Binding="{Binding ViewModel.IsExpanded}"
-                                                    Value="True">
+                                                         Value="True">
                                                 <Setter Property="Content"
                                                         Value="{materialDesign:PackIcon WindowMinimize}"/>
                                                 <Setter Property="ToolTip"
                                                         Value="收起主界面"/>
                                             </DataTrigger>
                                             <DataTrigger Binding="{Binding ViewModel.IsExpanded}"
-                                                    Value="False">
+                                                         Value="False">
                                                 <Setter Property="Content"
                                                         Value="{materialDesign:PackIcon WindowRestore}"/>
                                                 <Setter Property="ToolTip"
@@ -334,7 +331,7 @@
                     </ListView.LayoutTransform>
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem"
-                                BasedOn="{StaticResource MaterialDesignListBoxItem}">
+                               BasedOn="{StaticResource MaterialDesignListBoxItem}">
                             <Setter Property="Padding"
                                     Value="24 0 0 0"/>
                             <Setter Property="materialDesign:BehaviorsAssist.Behaviors">
@@ -352,15 +349,15 @@
                             <GroupStyle.Panel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel Orientation="Vertical"
-                                            FocusVisualStyle="{x:Null}">
+                                               FocusVisualStyle="{x:Null}">
                                         <WrapPanel.ItemWidth>
                                             <MultiBinding Converter="{StaticResource MinValueMultiConverter}"
                                                           Mode="OneWay">
                                                 <Binding Path="ActualWidth"
-                                                        ElementName="MainListView"
-                                                        Mode="OneWay"/>
+                                                         ElementName="MainListView"
+                                                         Mode="OneWay"/>
                                                 <Binding Path="SettingsService.Settings.MaxPanelWidth"
-                                                        Mode="OneWay"/>
+                                                         Mode="OneWay"/>
                                             </MultiBinding>
                                         </WrapPanel.ItemWidth>
                                     </WrapPanel>
@@ -373,8 +370,8 @@
                                             <ControlTemplate TargetType="{x:Type GroupItem}">
                                                 <StackPanel>
                                                     <TextBlock Text="{Binding Name}"
-                                                            FontSize="22"
-                                                            FontWeight="Bold"/>
+                                                               FontSize="22"
+                                                               FontWeight="Bold"/>
                                                     <ItemsPresenter/>
                                                 </StackPanel>
                                             </ControlTemplate>
@@ -393,7 +390,7 @@
                                                           HorizontalAlignment="Stretch"
                                                           Homework="{Binding}"/>
                                 <StackPanel Grid.Column="1"
-                                        Orientation="Horizontal"
+                                            Orientation="Horizontal"
                                             Visibility="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}, Converter={StaticResource BooleanToVisibilityConverter}}">
                                     <Button Content="{materialDesign:PackIcon EditOutline}"
                                             Style="{StaticResource MaterialDesignToolForegroundButton}"
@@ -418,7 +415,7 @@
                         Visibility="{Binding ViewModel.IsExpanded, Converter={StaticResource BooleanToVisibilityConverter}}"
                         Style="{StaticResource MaterialDesignFlatButton}">
                     <ely:IconText Kind="Add"
-                            Text="布置作业"/>
+                                  Text="布置任务"/>
                 </Button>
 
                 <!-- 保存中 -->
@@ -443,18 +440,20 @@
                         BorderThickness="8 0 8 8"
                         BorderBrush="{DynamicResource PrimaryHueMidBrush}"/>
                 <StackPanel Grid.Row="1"
-                        Grid.RowSpan="2"
+                            Grid.RowSpan="2"
                             d:Visibility="Collapsed"
                             Visibility="{Binding ViewModel.IsUnlocked, Converter={StaticResource BooleanToVisibilityConverter}}"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             Margin="12">
-                    <!--<Image Source="/Assets/光辉矢愿_瞄准.png" Height="81" Width="81"
+                    <Image Source="/Assets/光辉矢愿_瞄准.png"
+                            Height="81"
+                            Width="81"
                            HorizontalAlignment="Center"
-                           Margin="0 0 0 8"/>-->
+                           Margin="0 0 0 8"/>
                     <materialDesign:PackIcon Kind="MoveResizeVariant"
                                              Height="80"
-                            Width="80"
+                                             Width="80"
                                              HorizontalAlignment="Center"
                                              Margin="8"/>
                     <!--<controls:WindowMovingDemo Margin="0 0 0 8" ToolTip="窗口操作演示"/>-->
@@ -481,7 +480,7 @@
                         Opacity="0.75"
                         Background="{DynamicResource MaterialDesignPaper}"/>
                 <StackPanel Grid.Row="1"
-                        Grid.RowSpan="2"
+                            Grid.RowSpan="2"
                             d:Visibility="Collapsed"
                             Visibility="{Binding ViewModel.IsWorking, Converter={StaticResource BooleanToVisibilityConverter}}"
                             VerticalAlignment="Center"
@@ -491,7 +490,7 @@
 
                 <!-- Snackbar -->
                 <materialDesign:Snackbar Grid.Row="0"
-                        Grid.RowSpan="3"
+                                         Grid.RowSpan="3"
                                          MessageQueue="{Binding ViewModel.SnackbarMessageQueue}"/>
             </Grid>
         </materialDesign:DrawerHost>
