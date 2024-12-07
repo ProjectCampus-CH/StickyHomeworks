@@ -14,12 +14,13 @@
         TextElement.FontWeight="Regular"
         TextElement.FontSize="14"
         FontFamily="{StaticResource HarmonyOsSans}"
-        Title="{Binding SettingsService.Settings.Title, Mode=OneWay}" 
+        Title="{Binding SettingsService.Settings.Title, Mode=OneWay}"
         ShowInTaskbar="{Binding SettingsService.Settings.IsDebugShowInTaskBar}"
         d:DataContext="{d:DesignInstance local:MainWindow}"
         Closing="MainWindow_OnClosing"
         WindowStyle="None"
-        Height="450" Width="800"
+        Height="450"
+        Width="800"
         MinWidth="250"
         MinHeight="45"
         Icon="/Assets/AppLogo.png"
@@ -31,28 +32,41 @@
     <Window.Style>
         <Style TargetType="Window">
             <Style.Triggers>
-                <DataTrigger Binding="{Binding ViewModel.IsUnlocked}" Value="True">
-                    <Setter Property="ResizeMode" Value="CanResize"/>
-                    <Setter Property="Background" Value="{DynamicResource MaterialDesignPaper}"/>
+                <DataTrigger Binding="{Binding ViewModel.IsUnlocked}"
+                        Value="True">
+                    <Setter Property="ResizeMode"
+                            Value="CanResize"/>
+                    <Setter Property="Background"
+                            Value="{DynamicResource MaterialDesignPaper}"/>
                 </DataTrigger>
-                <DataTrigger Binding="{Binding ViewModel.IsUnlocked}" Value="False">
-                    <Setter Property="ResizeMode" Value="NoResize"/>
-                    <Setter Property="Background" Value="{x:Null}"/>
+                <DataTrigger Binding="{Binding ViewModel.IsUnlocked}"
+                        Value="False">
+                    <Setter Property="ResizeMode"
+                            Value="NoResize"/>
+                    <Setter Property="Background"
+                            Value="{x:Null}"/>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
     </Window.Style>
     <Window.Resources>
-        <Style x:Key="MarkdownParagraphBaseStyle" TargetType="Paragraph">
-            <Setter Property="FontWeight" Value="Regular"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="LineHeight" Value="1"/>
-            <Setter Property="Margin" Value="0"/>
+        <Style x:Key="MarkdownParagraphBaseStyle"
+                TargetType="Paragraph">
+            <Setter Property="FontWeight"
+                    Value="Regular"/>
+            <Setter Property="FontSize"
+                    Value="20"/>
+            <Setter Property="LineHeight"
+                    Value="1"/>
+            <Setter Property="Margin"
+                    Value="0"/>
         </Style>
 
-        <Style TargetType="Paragraph" BasedOn="{StaticResource MarkdownParagraphBaseStyle}"/>
-        <Style TargetType="FlowDocument" >
-            <Setter Property="PagePadding" Value="0"/>
+        <Style TargetType="Paragraph"
+                BasedOn="{StaticResource MarkdownParagraphBaseStyle}"/>
+        <Style TargetType="FlowDocument">
+            <Setter Property="PagePadding"
+                    Value="0"/>
         </Style>
         <Style x:Key="BlankFocusVisualStyle">
             <Setter Property="Control.Template">
@@ -63,22 +77,31 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <CollectionViewSource x:Key='SourceGrouped' 
+        <CollectionViewSource x:Key='SourceGrouped'
                               Source="{Binding ProfileService.Profile.Homeworks}">
             <CollectionViewSource.GroupDescriptions>
                 <PropertyGroupDescription PropertyName="Subject"/>
             </CollectionViewSource.GroupDescriptions>
         </CollectionViewSource>
 
-        <StackPanel x:Key="ExitConfirm" VerticalAlignment="Stretch" Margin="16" MaxWidth="400">
+        <StackPanel x:Key="ExitConfirm"
+                VerticalAlignment="Stretch"
+                Margin="16"
+                MaxWidth="400">
             <TextBlock Style="{StaticResource MaterialDesignHeadline6TextBlock}">
                 <Run Text="退出应用"/>
             </TextBlock>
-            <TextBlock Margin="0 6 0 0" TextWrapping="Wrap">
+            <TextBlock Margin="0 6 0 0"
+                    TextWrapping="Wrap">
                 <Run Text="确定要退出应用吗？"/>
             </TextBlock>
-            <StackPanel Orientation="Horizontal" Margin="0 8 0 0" HorizontalAlignment="Right">
-                <Button Content="退出" HorizontalAlignment="Right" Style="{DynamicResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" 
+            <StackPanel Orientation="Horizontal"
+                    Margin="0 8 0 0"
+                    HorizontalAlignment="Right">
+                <Button Content="退出"
+                        HorizontalAlignment="Right"
+                        Style="{DynamicResource MaterialDesignFlatButton}"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
                         Click="ButtonExit_OnClick">
                     <Button.CommandParameter>
                         <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
@@ -86,7 +109,11 @@
                         </system:Boolean>
                     </Button.CommandParameter>
                 </Button>
-                <Button Content="取消" HorizontalAlignment="Right" Style="{DynamicResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Margin="6 0 0 0">
+                <Button Content="取消"
+                        HorizontalAlignment="Right"
+                        Style="{DynamicResource MaterialDesignFlatButton}"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                        Margin="6 0 0 0">
                     <Button.CommandParameter>
                         <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
                             False
@@ -96,9 +123,12 @@
             </StackPanel>
         </StackPanel>
         <Storyboard x:Key="StoryBoardSaving">
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PackIconArrowFile" Storyboard.TargetProperty="(Canvas.Top)">
-                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
-                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="50"/>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="PackIconArrowFile"
+                    Storyboard.TargetProperty="(Canvas.Top)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00"
+                        Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000"
+                        Value="50"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -116,15 +146,15 @@
                                    DrawerClosing="DrawerHost_OnDrawerClosing">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <!-- 背景 -->
                 <Border Grid.Row="0"
                         Grid.RowSpan="3"
                         Background="{DynamicResource MaterialDesignPaper}"
-                        Opacity="{Binding SettingsService.Settings.Opacity}" />
+                        Opacity="{Binding SettingsService.Settings.Opacity}"/>
                 <!-- 标题栏 -->
                 <materialDesign:ColorZone Grid.Row="0"
                                           Mode="PrimaryMid"
@@ -133,24 +163,29 @@
                                           MouseDown="DragBorder_OnMouseDown">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <!-- 标题 -->
-                        <TextBlock Grid.Column="0" Text="{Binding SettingsService.Settings.Title, Mode=OneWay}"
+                        <TextBlock Grid.Column="0"
+                                Text="{Binding SettingsService.Settings.Title, Mode=OneWay}"
                                    VerticalAlignment="Center"
                                    FontWeight="Medium"
                                    TextTrimming="CharacterEllipsis"
-                                   FontSize="22" Margin="6 2 2 2" />
+                                   FontSize="22"
+                                Margin="6 2 2 2"/>
                         <!-- 功能区 -->
-                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <StackPanel Grid.Column="1"
+                                Orientation="Horizontal">
                             <StackPanel.Resources>
                                 <Style TargetType="Button"
                                        BasedOn="{StaticResource MaterialDesignToolForegroundButton}">
-                                    <Setter Property="Margin" Value="4 0"></Setter>
+                                    <Setter Property="Margin"
+                                            Value="4 0"></Setter>
                                 </Style>
                             </StackPanel.Resources>
-                            <Button Content="{materialDesign:PackIcon Menu, Size=18}" ToolTip="更多选项…" 
+                            <Button Content="{materialDesign:PackIcon Menu, Size=18}"
+                                    ToolTip="更多选项…"
                                     Visibility="{Binding ViewModel.IsExpanded, Converter={StaticResource BooleanToVisibilityConverter}}"
                                     Click="ButtonMore_Click"/>
                             <materialDesign:PopupEx x:Name="PopupExAdvanced"
@@ -161,13 +196,15 @@
                                       Margin="8"
                                       TextElement.Foreground="{DynamicResource MaterialDesignBody}">
                                     <Grid.Effect>
-                                        <DropShadowEffect BlurRadius="8" Direction="0" 
+                                        <DropShadowEffect BlurRadius="8"
+                                                Direction="0"
                                                           ShadowDepth="0"
-                                                          
                                                           Opacity="0.5"/>
                                     </Grid.Effect>
-                                    <StackPanel Margin="12" MenuItem.Click="MenuItem_OnClick">
-                                        <ely:IconText Kind="CogOutline" Text="更多选项"/>
+                                    <StackPanel Margin="12"
+                                            MenuItem.Click="MenuItem_OnClick">
+                                        <ely:IconText Kind="CogOutline"
+                                                Text="更多选项"/>
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition/>
@@ -178,11 +215,11 @@
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
                                             <!-- 界面缩放 -->
-                                            <TextBlock Grid.Row="0" 
+                                            <TextBlock Grid.Row="0"
                                                        Grid.Column="0"
                                                        Text="界面缩放"
                                                        VerticalAlignment="Center"/>
-                                            <controls:NumberUpDownControl Grid.Row="0" 
+                                            <controls:NumberUpDownControl Grid.Row="0"
                                                                           Grid.Column="1"
                                                                           StringFormat="P0"
                                                                           MinValue="0.8"
@@ -191,11 +228,11 @@
                                                                           Value="{Binding SettingsService.Settings.Scale, Mode=TwoWay}"
                                                                           Step="0.05"/>
                                             <!-- 背景不透明度 -->
-                                            <TextBlock Grid.Row="1" 
+                                            <TextBlock Grid.Row="1"
                                                        Grid.Column="0"
                                                        Text="背景不透明度"
                                                        VerticalAlignment="Center"/>
-                                            <controls:NumberUpDownControl Grid.Row="1" 
+                                            <controls:NumberUpDownControl Grid.Row="1"
                                                                           Grid.Column="1"
                                                                           StringFormat="P0"
                                                                           MinValue="0"
@@ -205,8 +242,20 @@
                                                                           Step="0.05"/>
                                         </Grid>
                                         <Separator Margin="-12 4"/>
-                                        <MenuItem Margin="-12 0" Icon="{materialDesign:PackIcon Refresh}" Header="恢复过期的作业" Click="MenuItemRecoverExpiredHomework_OnClick" IsEnabled="{Binding ViewModel.CanRecoverExpireHomework}"/>
-                                        <MenuItem Margin="-12 0" Icon="{materialDesign:PackIcon CogOutline}" Header="更多设置…" Click="ButtonSettings_OnClick"/>
+                                        <MenuItem Margin="-12 0"
+                                                Icon="{materialDesign:PackIcon Refresh}"
+                                                Header="恢复过期的作业"
+                                                Click="MenuItemRecoverExpiredHomework_OnClick"
+                                                IsEnabled="{Binding ViewModel.CanRecoverExpireHomework}"/>
+                                        <MenuItem Margin="-12 0"
+                                                Icon="{materialDesign:PackIcon CogOutline}"
+                                                Header="更多设置…"
+                                                Click="ButtonSettings_OnClick"/>
+                                        <MenuItem Margin="-12 0"
+                                                Icon="{materialDesign:PackIcon Close}"
+                                                Header="退出"
+                                                Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                                                CommandParameter="{StaticResource ExitConfirm}"/>
                                     </StackPanel>
                                 </Grid>
                             </materialDesign:PopupEx>
@@ -217,34 +266,42 @@
                                           materialDesign:ToggleButtonAssist.SwitchTrackOnBackground="{DynamicResource MaterialDesignPaper}"
                                           ToolTip="锁定窗口"
                                           Visibility="{Binding ViewModel.IsExpanded, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                          IsChecked="{Binding ViewModel.IsUnlocked, Converter={StaticResource InvertBooleanConverter}}" />
-                            <Button Content="{materialDesign:PackIcon FileExport, Size=18}" ToolTip="导出…" 
+                                          IsChecked="{Binding ViewModel.IsUnlocked, Converter={StaticResource InvertBooleanConverter}}"/>
+                            <Button Content="{materialDesign:PackIcon FileExport, Size=18}"
+                                    ToolTip="导出…"
                                     Visibility="{Binding ViewModel.IsExpanded, Converter={StaticResource BooleanToVisibilityConverter}}"
                                     Click="ButtonExport_OnClick"/>
-                            <Button Content="{materialDesign:PackIcon Add, Size=18}" ToolTip="布置作业"
+                            <Button Content="{materialDesign:PackIcon Add, Size=18}"
+                                    ToolTip="布置作业"
                                     Visibility="{Binding ViewModel.IsExpanded, Converter={StaticResource BooleanToVisibilityConverter}}"
-                                    Click="ButtonCreateHomework_OnClick" />
-                            <Button Content="{materialDesign:PackIcon Settings, Size=18}" ToolTip="设置…"
-                                    Click="ButtonSettings_OnClick" />
-                            <Button Margin="4 0" Click="ButtonExpandingSwitcher_OnClick">
+                                    Click="ButtonCreateHomework_OnClick"/>
+                            <Button Content="{materialDesign:PackIcon Settings, Size=18}"
+                                    ToolTip="设置…"
+                                    Click="ButtonSettings_OnClick"/>
+                            <Button Margin="4 0"
+                                    Click="ButtonExpandingSwitcher_OnClick">
                                 <Button.Style>
-                                    <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignToolForegroundButton}">
+                                    <Style TargetType="Button"
+                                            BasedOn="{StaticResource MaterialDesignToolForegroundButton}">
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding ViewModel.IsExpanded}" Value="True">
-                                                <Setter Property="Content" Value="{materialDesign:PackIcon WindowMinimize}"/>
-                                                <Setter Property="ToolTip" Value="收起主界面"/>
+                                            <DataTrigger Binding="{Binding ViewModel.IsExpanded}"
+                                                    Value="True">
+                                                <Setter Property="Content"
+                                                        Value="{materialDesign:PackIcon WindowMinimize}"/>
+                                                <Setter Property="ToolTip"
+                                                        Value="收起主界面"/>
                                             </DataTrigger>
-                                            <DataTrigger Binding="{Binding ViewModel.IsExpanded}" Value="False">
-                                                <Setter Property="Content" Value="{materialDesign:PackIcon WindowRestore}"/>
-                                                <Setter Property="ToolTip" Value="展开主界面"/>
+                                            <DataTrigger Binding="{Binding ViewModel.IsExpanded}"
+                                                    Value="False">
+                                                <Setter Property="Content"
+                                                        Value="{materialDesign:PackIcon WindowRestore}"/>
+                                                <Setter Property="ToolTip"
+                                                        Value="展开主界面"/>
                                             </DataTrigger>
                                         </Style.Triggers>
                                     </Style>
                                 </Button.Style>
                             </Button>
-                            <Button Content="{materialDesign:PackIcon Close, Size=18}" ToolTip="退出" 
-                                    Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
-                                    CommandParameter="{StaticResource ExitConfirm}"/>
                         </StackPanel>
                     </Grid>
                 </materialDesign:ColorZone>
@@ -264,20 +321,22 @@
                           ScrollViewer.CanContentScroll="False"
                           SelectionChanged="MainListView_OnSelectionChanged"
                           Visibility="{Binding ViewModel.IsExpanded, Converter={StaticResource BooleanToVisibilityConverter}}"
-                          x:Name="MainListView" 
+                          x:Name="MainListView"
                           d:ItemsSource="{d:SampleData ItemCount=5}">
                     <ListView.LayoutTransform>
                         <TransformGroup>
                             <ScaleTransform ScaleX="{Binding SettingsService.Settings.Scale, Mode=OneWay}"
-                                            ScaleY="{Binding SettingsService.Settings.Scale, Mode=OneWay}" />
-                            <SkewTransform />
-                            <RotateTransform />
-                            <TranslateTransform />
+                                            ScaleY="{Binding SettingsService.Settings.Scale, Mode=OneWay}"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
                         </TransformGroup>
                     </ListView.LayoutTransform>
                     <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem" BasedOn="{StaticResource MaterialDesignListBoxItem}">
-                            <Setter Property="Padding" Value="24 0 0 0" />
+                        <Style TargetType="ListViewItem"
+                                BasedOn="{StaticResource MaterialDesignListBoxItem}">
+                            <Setter Property="Padding"
+                                    Value="24 0 0 0"/>
                             <Setter Property="materialDesign:BehaviorsAssist.Behaviors">
                                 <Setter.Value>
                                     <materialDesign:BehaviorCollection>
@@ -292,12 +351,16 @@
                         <GroupStyle>
                             <GroupStyle.Panel>
                                 <ItemsPanelTemplate>
-                                    <WrapPanel Orientation="Vertical" FocusVisualStyle="{x:Null}">
+                                    <WrapPanel Orientation="Vertical"
+                                            FocusVisualStyle="{x:Null}">
                                         <WrapPanel.ItemWidth>
                                             <MultiBinding Converter="{StaticResource MinValueMultiConverter}"
                                                           Mode="OneWay">
-                                                <Binding Path="ActualWidth" ElementName="MainListView" Mode="OneWay" />
-                                                <Binding Path="SettingsService.Settings.MaxPanelWidth" Mode="OneWay" />
+                                                <Binding Path="ActualWidth"
+                                                        ElementName="MainListView"
+                                                        Mode="OneWay"/>
+                                                <Binding Path="SettingsService.Settings.MaxPanelWidth"
+                                                        Mode="OneWay"/>
                                             </MultiBinding>
                                         </WrapPanel.ItemWidth>
                                     </WrapPanel>
@@ -309,8 +372,10 @@
                                         <Setter.Value>
                                             <ControlTemplate TargetType="{x:Type GroupItem}">
                                                 <StackPanel>
-                                                    <TextBlock Text="{Binding Name}" FontSize="22" FontWeight="Bold" />
-                                                    <ItemsPresenter />
+                                                    <TextBlock Text="{Binding Name}"
+                                                            FontSize="22"
+                                                            FontWeight="Bold"/>
+                                                    <ItemsPresenter/>
                                                 </StackPanel>
                                             </ControlTemplate>
                                         </Setter.Value>
@@ -326,16 +391,21 @@
                                                           IsEditing="{Binding ViewModel.IsDrawerOpened, RelativeSource={RelativeSource FindAncestor, AncestorType=local:MainWindow}}"
                                                           IsSelected="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}, Mode=OneWay}"
                                                           HorizontalAlignment="Stretch"
-                                                          Homework="{Binding}" />
-                                <StackPanel Grid.Column="1" Orientation="Horizontal"
+                                                          Homework="{Binding}"/>
+                                <StackPanel Grid.Column="1"
+                                        Orientation="Horizontal"
                                             Visibility="{Binding IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}, Converter={StaticResource BooleanToVisibilityConverter}}">
                                     <Button Content="{materialDesign:PackIcon EditOutline}"
                                             Style="{StaticResource MaterialDesignToolForegroundButton}"
-                                            Margin="4 0" ToolTip="编辑" Click="ButtonEditHomework_OnClick" />
+                                            Margin="4 0"
+                                            ToolTip="编辑"
+                                            Click="ButtonEditHomework_OnClick"/>
                                     <Button Content="{materialDesign:PackIcon DeleteOutline}"
                                             Style="{StaticResource MaterialDesignToolForegroundButton}"
-                                            Margin="4 0" ToolTip="删除" Foreground="IndianRed"
-                                            Click="ButtonRemoveHomework_OnClick" />
+                                            Margin="4 0"
+                                            ToolTip="删除"
+                                            Foreground="IndianRed"
+                                            Click="ButtonRemoveHomework_OnClick"/>
                                 </StackPanel>
                             </StackPanel>
                         </DataTemplate>
@@ -347,25 +417,33 @@
                         Click="ButtonCreateHomework_OnClick"
                         Visibility="{Binding ViewModel.IsExpanded, Converter={StaticResource BooleanToVisibilityConverter}}"
                         Style="{StaticResource MaterialDesignFlatButton}">
-                    <ely:IconText Kind="Add" Text="布置作业" />
+                    <ely:IconText Kind="Add"
+                            Text="布置作业"/>
                 </Button>
 
                 <!-- 保存中 -->
                 <!--<Canvas Grid.Row="1" Margin="0,30,50,0" HorizontalAlignment="Right" VerticalAlignment="Top">
-                    --><!-- File --><!--
+                    -->
+                <!-- File -->
+                <!--
                     <materialDesign:PackIcon Name="PackIconArrowFile" Kind="ArrowDownBold" Width="26" Height="26" Canvas.Top="0"/>
-                    --><!-- File --><!--
+                    -->
+                <!-- File -->
+                <!--
                     <materialDesign:PackIcon Name="PackIconFile" Kind="FileDocument" Width="26" Height="26" Canvas.Top="30"/>
                 </Canvas>-->
 
                 <!-- 已解锁 -->
-                <Border Grid.Row="1" Grid.RowSpan="2"
+                <Border Grid.Row="1"
+                        Grid.RowSpan="2"
                         d:Visibility="Collapsed"
                         Visibility="{Binding ViewModel.IsUnlocked, Converter={StaticResource BooleanToVisibilityConverter}}"
-                        Opacity="0.75" Background="{DynamicResource MaterialDesignPaper}" 
+                        Opacity="0.75"
+                        Background="{DynamicResource MaterialDesignPaper}"
                         BorderThickness="8 0 8 8"
                         BorderBrush="{DynamicResource PrimaryHueMidBrush}"/>
-                <StackPanel Grid.Row="1" Grid.RowSpan="2"
+                <StackPanel Grid.Row="1"
+                        Grid.RowSpan="2"
                             d:Visibility="Collapsed"
                             Visibility="{Binding ViewModel.IsUnlocked, Converter={StaticResource BooleanToVisibilityConverter}}"
                             VerticalAlignment="Center"
@@ -374,32 +452,36 @@
                     <!--<Image Source="/Assets/光辉矢愿_瞄准.png" Height="81" Width="81"
                            HorizontalAlignment="Center"
                            Margin="0 0 0 8"/>-->
-                    <materialDesign:PackIcon Kind="MoveResizeVariant" 
-                                             Height="80" Width="80"
+                    <materialDesign:PackIcon Kind="MoveResizeVariant"
+                                             Height="80"
+                            Width="80"
                                              HorizontalAlignment="Center"
                                              Margin="8"/>
                     <!--<controls:WindowMovingDemo Margin="0 0 0 8" ToolTip="窗口操作演示"/>-->
                     <TextBlock Text="窗口已经解锁，拖动以移动窗口，拉伸边缘以调整窗口大小。"
-                               TextWrapping="Wrap" 
+                               TextWrapping="Wrap"
                                HorizontalAlignment="Center"
                                TextAlignment="Center"/>
                 </StackPanel>
-                <Border Grid.Row="1" Grid.RowSpan="2"
+                <Border Grid.Row="1"
+                        Grid.RowSpan="2"
                         x:Name="DragBorder"
                         d:Visibility="Collapsed"
                         Visibility="{Binding ViewModel.IsUnlocked, Converter={StaticResource BooleanToVisibilityConverter}}"
                         Background="Transparent"
-                        MouseDown="DragBorder_OnMouseDown"
-                        >
+                        MouseDown="DragBorder_OnMouseDown">
 
                 </Border>
 
                 <!-- Working -->
-                <Border Grid.Row="1" Grid.RowSpan="2"
+                <Border Grid.Row="1"
+                        Grid.RowSpan="2"
                         d:Visibility="Collapsed"
                         Visibility="{Binding ViewModel.IsWorking, Converter={StaticResource BooleanToVisibilityConverter}}"
-                        Opacity="0.75" Background="{DynamicResource MaterialDesignPaper}" />
-                <StackPanel Grid.Row="1" Grid.RowSpan="2"
+                        Opacity="0.75"
+                        Background="{DynamicResource MaterialDesignPaper}"/>
+                <StackPanel Grid.Row="1"
+                        Grid.RowSpan="2"
                             d:Visibility="Collapsed"
                             Visibility="{Binding ViewModel.IsWorking, Converter={StaticResource BooleanToVisibilityConverter}}"
                             VerticalAlignment="Center"
@@ -408,7 +490,8 @@
                 </StackPanel>
 
                 <!-- Snackbar -->
-                <materialDesign:Snackbar Grid.Row="0" Grid.RowSpan="3"
+                <materialDesign:Snackbar Grid.Row="0"
+                        Grid.RowSpan="3"
                                          MessageQueue="{Binding ViewModel.SnackbarMessageQueue}"/>
             </Grid>
         </materialDesign:DrawerHost>
