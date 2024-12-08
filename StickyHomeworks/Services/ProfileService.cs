@@ -54,7 +54,7 @@ public class ProfileService : IHostedService, INotifyPropertyChanged
         return rm;
     }
 
-    public List<Homework> Deleteallhomework()
+    public List<Homework> DeleteAllHomework()
     {
         DateTime date = new DateTime(9999, 12, 31);//找个悠久的日期
         var rm = Profile.Homeworks.Where(i => i.DueTime.Date < date).ToList();

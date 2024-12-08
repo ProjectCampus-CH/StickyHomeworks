@@ -104,6 +104,9 @@
                 <models:ContributionMember
                     AvatarImage="/Assets/Contributiors/HelloWRC@64w.jpg"
                     Name="HelloWRC" Description="软件作者，写代码巨水（划掉）" />
+                <models:ContributionMember
+                    AvatarImage="/Assets/Contributiors/mkstoler@64w.png"
+                    Name="MKStoler" Description="别说了，在学了！" />
             </ListView>
         </Grid>
 
@@ -589,8 +592,8 @@
                                         <materialDesign:Ripple Grid.Column="0" VerticalAlignment="Top"
                                                                MouseDown="AppIcon_OnMouseDown">
                                             <!-- TODO: 应用图标 -->
-                                            <!--<Image Source="/Assets/AppLogo.ico" Width="40"
-                                                   Height="40" VerticalAlignment="Top" />-->
+                                        <Image Source="/Assets/AppLogo.ico" Width="40"
+                                                   Height="40" VerticalAlignment="Top" />
                                         </materialDesign:Ripple>
                                         <!-- about -->
                                         <StackPanel Grid.Column="1" Margin="10 0 0 0">
@@ -634,11 +637,15 @@
                                             关于本应用
                                         </Paragraph>
                                         <Paragraph>
-                                            注意！本应用处于早期开发阶段！大部分功能尚不完善，或存在bug，可能会在后期的版本中完善或修复（我不是原作者也没打算画饼！——后续开发者注）。饼要一个一个画，功能要一个一个实现】’
+                                            感谢 HelloWRC 对原项目的开发！
                                         </Paragraph>
                                         <Paragraph>
-                                            能造几个功能是几个吧，想要完善的功能去看 Stickt-Attention 去。
+                                            当前作者有以下特性：
                                         </Paragraph>
+                                        <List>
+                                            <ListItem><Paragraph>C# 初学者</Paragraph></ListItem>
+                                            <ListItem><Paragraph>使用 VSCode 编写 XAML</Paragraph></ListItem>
+                                        </List>
                                         <Paragraph Style="{StaticResource MarkdownHeadline2Style}"
                                                    LineHeight="2">
                                             鸣谢：

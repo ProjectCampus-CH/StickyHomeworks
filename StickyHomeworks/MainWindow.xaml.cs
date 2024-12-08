@@ -152,7 +152,7 @@ private void MenuItemClearAllHomework_OnClick(object sender, RoutedEventArgs e)
     // 如果用户点击了“是”
     if (result == MessageBoxResult.Yes)
     {
-        ViewModel.ExpiredHomeworks = ProfileService.CleanupOutdated();
+        ViewModel.ExpiredHomeworks = ProfileService.DeleteAllHomework();
         if (ViewModel.ExpiredHomeworks.Count > 0)
         {
             ViewModel.CanRecoverExpireHomework = true;

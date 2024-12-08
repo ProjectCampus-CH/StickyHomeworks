@@ -249,7 +249,8 @@
                                         <MenuItem Margin="-12 0"
                                                   Icon="{materialDesign:PackIcon Delete}"
                                                   Header="清除所有作业"
-                                                  Click="MenuItemClearAllHomework_OnClick"/>
+                                                  Click="MenuItemClearAllHomework_OnClick"
+                                                  Foreground="Red"/>
                                         <MenuItem Margin="-12 0"
                                                   Icon="{materialDesign:PackIcon Refresh}"
                                                   Header="恢复清除的的作业"
