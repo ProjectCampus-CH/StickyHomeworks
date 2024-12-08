@@ -106,7 +106,7 @@
                     Name="HelloWRC" Description="软件作者，写代码巨水（划掉）" />
                 <models:ContributionMember
                     AvatarImage="/Assets/Contributiors/mkstoler@64w.png"
-                    Name="MKStoler" Description="别说了，在学了！" />
+                    Name="MKStoler4096" Description="别说了，在学 WPF 了！" />
             </ListView>
         </Grid>
 
@@ -199,7 +199,7 @@
             <StackPanel Margin="16">
                 <TextBlock Text="实验性功能" Style="{StaticResource MaterialDesignHeadline5TextBlock}"
                            Margin="0 0 0 4"/>
-                <TextBlock Text="正在开发/测试的不稳定功能，可能会出现Bug等问题，请谨慎使用。" TextWrapping="Wrap"
+                <TextBlock Text="我这个垃圾开发者大概是用不上这个了！" TextWrapping="Wrap"
                            Margin="0 0 0 16"/>
 
             </StackPanel>
@@ -305,7 +305,7 @@
                                 </ely:SettingsCard>
                                 <!-- 背景透明度 -->
                                 <ely:SettingsCard IconGlyph="SquareTransparent" Header="背景不透明度"
-                                                       Description="课表背景颜色的不透明度。">
+                                                       Description="背景颜色的不透明度。">
                                     <ely:SettingsCard.Switcher>
                                         <Slider Width="180" Minimum="0" Maximum="1"
                                                 Value="{Binding Settings.Opacity}"

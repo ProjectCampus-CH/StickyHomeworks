@@ -99,7 +99,7 @@
                     <ely:IconText Kind="FormatBold" Text="文本"/>
                     <Grid>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                            <Button Content="{materialDesign:PackIcon EmoticonOutline}"
+                            <!--<Button Content="{materialDesign:PackIcon EmoticonOutline}"
                                     VerticalAlignment="Center"
                                     Margin="4 0"
                                     Style="{StaticResource MaterialDesignToolForegroundButton}" />
@@ -110,7 +110,7 @@
                             <Button Content="{materialDesign:PackIcon LinkAdd}"
                                     VerticalAlignment="Center"
                                     Margin="4 0"
-                                    Style="{StaticResource MaterialDesignToolForegroundButton}" />
+                                    Style="{StaticResource MaterialDesignToolForegroundButton}" />-->
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                             <Button Content="{materialDesign:PackIcon Undo}"
@@ -272,7 +272,7 @@
                         HorizontalAlignment="Right"
                         Margin="8">
                 <Button Click="ButtonEditingDone_OnClick">
-                    <ely:IconText Kind="Check" Text="确定"/>
+                    <ely:IconText Kind="Check" Text="完成"/>
                 </Button>
             </StackPanel>
         </Grid>

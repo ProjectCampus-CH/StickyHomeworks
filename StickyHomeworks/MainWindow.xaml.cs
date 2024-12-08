@@ -213,6 +213,7 @@ private void MenuItemClearAllHomework_OnClick(object sender, RoutedEventArgs e)
 
     private void OnEditingFinished(object? sender, EventArgs e)
     {
+        
         ExitEditingMode();
     }
 
