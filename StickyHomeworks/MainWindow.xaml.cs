@@ -144,6 +144,23 @@ public partial class MainWindow : Window
         }
     }
 
+private void MenuItemClearAllHomework_OnClick(object sender, RoutedEventArgs e)
+{
+    // 弹出确认对话框
+    var result = System.Windows.MessageBox.Show("确定要清除所有作业吗？", "确认清除", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+    // 如果用户点击了“是”
+    if (result == MessageBoxResult.Yes)
+    {
+        ViewModel.ExpiredHomeworks = ProfileService.CleanupOutdated();
+        if (ViewModel.ExpiredHomeworks.Count > 0)
+        {
+            ViewModel.CanRecoverExpireHomework = true;
+            ViewModel.SnackbarMessageQueue.Enqueue($"共清除{ViewModel.ExpiredHomeworks.Count}条作业。",
+                "恢复", (o) => { RecoverExpiredHomework(); }, null, false, false, TimeSpan.FromSeconds(30));
+        }
+    }
+}
 
     protected override void OnInitialized(EventArgs e)
     {
@@ -151,7 +168,7 @@ public partial class MainWindow : Window
         if (ViewModel.ExpiredHomeworks.Count > 0)
         {
             ViewModel.CanRecoverExpireHomework = true;
-            ViewModel.SnackbarMessageQueue.Enqueue($"清除了{ViewModel.ExpiredHomeworks.Count}条过期的作业。",
+            ViewModel.SnackbarMessageQueue.Enqueue($"自动清除了{ViewModel.ExpiredHomeworks.Count}条过期的作业。",
                 "恢复", (o) => { RecoverExpiredHomework(); }, null, false, false, TimeSpan.FromSeconds(30));
         }
         base.OnInitialized(e);

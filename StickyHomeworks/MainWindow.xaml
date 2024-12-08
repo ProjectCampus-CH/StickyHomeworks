@@ -247,8 +247,12 @@
                                                   Header="清除过期作业"
                                                   Click="MenuItemClearExpiredHomework_OnClick"/>
                                         <MenuItem Margin="-12 0"
+                                                  Icon="{materialDesign:PackIcon Delete}"
+                                                  Header="清除所有作业"
+                                                  Click="MenuItemClearAllHomework_OnClick"/>
+                                        <MenuItem Margin="-12 0"
                                                   Icon="{materialDesign:PackIcon Refresh}"
-                                                  Header="恢复过期的作业"
+                                                  Header="恢复清除的的作业"
                                                   Click="MenuItemRecoverExpiredHomework_OnClick"
                                                   IsEnabled="{Binding ViewModel.CanRecoverExpireHomework}"/>
                                         <MenuItem Margin="-12 0"

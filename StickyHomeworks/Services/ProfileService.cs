@@ -54,6 +54,17 @@ public class ProfileService : IHostedService, INotifyPropertyChanged
         return rm;
     }
 
+    public List<Homework> Deleteallhomework()
+    {
+        DateTime date = new DateTime(9999, 12, 31);//找个悠久的日期
+        var rm = Profile.Homeworks.Where(i => i.DueTime.Date < date).ToList();
+        foreach (var i in rm)
+        {
+            Profile.Homeworks.Remove(i);
+        }
+        return rm;
+    }
+
     public void SaveProfile()
     {
         File.WriteAllText("./Profile.json", JsonSerializer.Serialize<Profile>(Profile));
