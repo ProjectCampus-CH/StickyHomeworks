@@ -440,20 +440,18 @@
                         BorderThickness="8 0 8 8"
                         BorderBrush="{DynamicResource PrimaryHueMidBrush}"/>
                 <StackPanel Grid.Row="1"
-                            Grid.RowSpan="2"
+                        Grid.RowSpan="2"
                             d:Visibility="Collapsed"
                             Visibility="{Binding ViewModel.IsUnlocked, Converter={StaticResource BooleanToVisibilityConverter}}"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             Margin="12">
-                    <Image Source="/Assets/光辉矢愿_瞄准.png"
-                            Height="81"
-                            Width="81"
+                    <!--<Image Source="/Assets/光辉矢愿_瞄准.png" Height="81" Width="81"
                            HorizontalAlignment="Center"
-                           Margin="0 0 0 8"/>
+                           Margin="0 0 0 8"/>-->
                     <materialDesign:PackIcon Kind="MoveResizeVariant"
                                              Height="80"
-                                             Width="80"
+                            Width="80"
                                              HorizontalAlignment="Center"
                                              Margin="8"/>
                     <!--<controls:WindowMovingDemo Margin="0 0 0 8" ToolTip="窗口操作演示"/>-->
@@ -471,7 +469,6 @@
                         MouseDown="DragBorder_OnMouseDown">
 
                 </Border>
-
                 <!-- Working -->
                 <Border Grid.Row="1"
                         Grid.RowSpan="2"
