@@ -96,9 +96,9 @@ public partial class MainWindow : Window
             ExitEditingMode(false);
         }
     }
-    
 
-    private void ExitEditingMode(bool hard=true)
+
+    private void ExitEditingMode(bool hard = true)
     {
         if (ViewModel.IsCreatingMode)
         {
@@ -132,6 +132,18 @@ public partial class MainWindow : Window
             SettingsService.Settings.WindowHeight = Height * dpi;
         }
     }
+
+    private void MenuItemClearExpiredHomework_OnClick(object sender, RoutedEventArgs e)
+    {
+        ViewModel.ExpiredHomeworks = ProfileService.CleanupOutdated();
+        if (ViewModel.ExpiredHomeworks.Count > 0)
+        {
+            ViewModel.CanRecoverExpireHomework = true;
+            ViewModel.SnackbarMessageQueue.Enqueue($"清除了{ViewModel.ExpiredHomeworks.Count}条过期的作业。",
+                "恢复", (o) => { RecoverExpiredHomework(); }, null, false, false, TimeSpan.FromSeconds(30));
+        }
+    }
+
 
     protected override void OnInitialized(EventArgs e)
     {
@@ -195,7 +207,7 @@ public partial class MainWindow : Window
     private void CreateHomework()
     {
         ViewModel.IsUpdatingHomeworkSubject = true;
-        OnHomeworkEditorUpdated?.Invoke(this ,EventArgs.Empty);
+        OnHomeworkEditorUpdated?.Invoke(this, EventArgs.Empty);
         var lastSubject = ViewModel.EditingHomework.Subject;
         ViewModel.IsCreatingMode = true;
         ViewModel.IsDrawerOpened = true;
@@ -282,7 +294,7 @@ public partial class MainWindow : Window
     {
         OnHomeworkEditorUpdated?.Invoke(this, EventArgs.Empty);
         ViewModel.IsCreatingMode = false;
-        if (ViewModel.SelectedHomework== null)
+        if (ViewModel.SelectedHomework == null)
             return;
         ViewModel.EditingHomework = ViewModel.SelectedHomework;
         ViewModel.IsDrawerOpened = true;
@@ -292,7 +304,7 @@ public partial class MainWindow : Window
 
     private void RepositionEditingWindow()
     {
-        if (ViewModel.SelectedListBoxItem == null) 
+        if (ViewModel.SelectedListBoxItem == null)
             return;
         Debug.WriteLine("selected changed");
         try
@@ -419,7 +431,7 @@ public partial class MainWindow : Window
                 Stretch = Stretch.None
             };
             var bg = (Brush)FindResource("MaterialDesignPaper");
-            context.DrawRectangle(bg, null, new Rect(0, 0, MainListView.ActualWidth * s, MainListView.ActualHeight * s)); 
+            context.DrawRectangle(bg, null, new Rect(0, 0, MainListView.ActualWidth * s, MainListView.ActualHeight * s));
             context.DrawRectangle(brush, null, new Rect(0, 0, MainListView.ActualWidth * s, MainListView.ActualHeight * s));
             context.Close();
         }
@@ -444,12 +456,12 @@ public partial class MainWindow : Window
             });
 
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             ViewModel.SnackbarMessageQueue.Enqueue($"导出失败：{ex}");
         }
 
-        done:
+    done:
         //MainListView.Background = null;
         dialog.Dispose();
         ViewModel.IsWorking = false;

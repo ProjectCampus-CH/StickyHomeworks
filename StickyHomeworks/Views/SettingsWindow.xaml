@@ -634,10 +634,10 @@
                                             关于本应用
                                         </Paragraph>
                                         <Paragraph>
-                                            注意！本应用处于早期开发阶段！大部分功能尚不完善，或存在bug，可能会在后期的版本中完善或修复。饼要一个一个画，功能要一个一个实现（
+                                            注意！本应用处于早期开发阶段！大部分功能尚不完善，或存在bug，可能会在后期的版本中完善或修复（我不是原作者也没打算画饼！——后续开发者注）。饼要一个一个画，功能要一个一个实现】’
                                         </Paragraph>
                                         <Paragraph>
-                                            别看了，没做完。
+                                            能造几个功能是几个吧，想要完善的功能去看 Stickt-Attention 去。
                                         </Paragraph>
                                         <Paragraph Style="{StaticResource MarkdownHeadline2Style}"
                                                    LineHeight="2">
@@ -654,13 +654,6 @@
                                                     Click="ButtonThirdPartyLibs_OnClick">
                                                 <ely:IconText Kind="PackageVariant" Text="第三方库" />
                                             </Button></Paragraph>
-                                        <Paragraph>
-                                            Work In Progress
-                                        </Paragraph>
-
-                                        <Paragraph Foreground="#fff7d1ec">
-                                            永远喜欢爱莉希雅
-                                        </Paragraph>
 
                                     </FlowDocument>
                                 </FlowDocumentScrollViewer>

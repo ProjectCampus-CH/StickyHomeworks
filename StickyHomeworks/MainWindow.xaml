@@ -243,8 +243,12 @@
                                         </Grid>
                                         <Separator Margin="-12 4"/>
                                         <MenuItem Margin="-12 0"
+                                                  Icon="{materialDesign:PackIcon Delete}"
+                                                  Header="清除过期作业"
+                                                  Click="MenuItemClearExpiredHomework_OnClick"/>
+                                        <MenuItem Margin="-12 0"
                                                   Icon="{materialDesign:PackIcon Refresh}"
-                                                  Header="恢复已删除的作业"
+                                                  Header="恢复过期的作业"
                                                   Click="MenuItemRecoverExpiredHomework_OnClick"
                                                   IsEnabled="{Binding ViewModel.CanRecoverExpireHomework}"/>
                                         <MenuItem Margin="-12 0"
@@ -253,12 +257,13 @@
                                                   Click="ButtonSettings_OnClick"/>
                                         <MenuItem Margin="-12 0"
                                                   Icon="{materialDesign:PackIcon Close}"
-                                                  Header="退出…"
+                                                  Header="退出"
                                                   Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
                                                   CommandParameter="{StaticResource ExitConfirm}"/>
                                     </StackPanel>
                                 </Grid>
                             </materialDesign:PopupEx>
+
                             <ToggleButton Style="{StaticResource MaterialDesignSwitchToggleButton}"
                                           Margin="4 0"
                                           Content="{materialDesign:PackIcon UnlockedOutline}"
@@ -440,7 +445,7 @@
                         BorderThickness="8 0 8 8"
                         BorderBrush="{DynamicResource PrimaryHueMidBrush}"/>
                 <StackPanel Grid.Row="1"
-                        Grid.RowSpan="2"
+                            Grid.RowSpan="2"
                             d:Visibility="Collapsed"
                             Visibility="{Binding ViewModel.IsUnlocked, Converter={StaticResource BooleanToVisibilityConverter}}"
                             VerticalAlignment="Center"
@@ -451,7 +456,7 @@
                            Margin="0 0 0 8"/>-->
                     <materialDesign:PackIcon Kind="MoveResizeVariant"
                                              Height="80"
-                            Width="80"
+                                             Width="80"
                                              HorizontalAlignment="Center"
                                              Margin="8"/>
                     <!--<controls:WindowMovingDemo Margin="0 0 0 8" ToolTip="窗口操作演示"/>-->
