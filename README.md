@@ -1,4 +1,4 @@
-# StickyHomeworks
+# StickyHomeworksn
 
 StickyHomeworks 是一款支持富文本的桌面作业贴工具。
 
